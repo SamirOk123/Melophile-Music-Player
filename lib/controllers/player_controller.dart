@@ -45,9 +45,9 @@ class PlayerScreenController extends GetxController {
         favouriteController.fav.value = 0;
       }
     } else {
-      if (tracksScreenController.currentIndex.value!= 0) {
+      if (tracksScreenController.currentIndex.value != 0) {
         tracksScreenController.currentIndex--;
-       favouriteController.fav.value = 0;
+        favouriteController.fav.value = 0;
       }
     }
     setSong(tracksScreenController
