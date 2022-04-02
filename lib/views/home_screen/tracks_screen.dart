@@ -73,10 +73,6 @@ class TracksScreen extends StatelessWidget {
                         ),
                       ),
                       onTap: () {
-                        // Get.find<PlayerScreenController>().setSong(
-                        //   trackScreenController.songs[index],
-                        // );
-
                         tracksScreenController.currentIndex.value = index;
 
                         Get.to(PlayerScreen());

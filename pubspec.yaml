@@ -15,7 +15,6 @@ dependencies:
   cupertino_icons: ^1.0.2
   on_audio_query: ^2.6.0
   just_audio: ^0.9.20
-  marquee: ^2.2.1
   get: ^4.6.1
   sqflite: ^2.0.2
   path: ^1.8.0

@@ -9,14 +9,13 @@ import 'package:my_music_player/widgets/track_card.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 
 class FavouritesScreen extends StatelessWidget {
-   FavouritesScreen({Key? key}) : super(key: key);
+  FavouritesScreen({Key? key}) : super(key: key);
   TracksScreenController tracksScreenController = Get.find();
 
   var favDb = FavouritesDatabaseConnect();
 
   @override
   Widget build(BuildContext context) {
-    //  Get.lazyPut(() => PlayerScreenController());
     return Scaffold(
       backgroundColor: kBackgroundColour,
       body: FutureBuilder(
@@ -29,7 +28,7 @@ class FavouritesScreen extends StatelessWidget {
                 itemCount: snapshot.data!.length,
                 itemBuilder: (BuildContext context, int index) {
                   return Dismissible(
-                    key: UniqueKey(), //ValueKey<int>(snapshot.data![index].id)
+                    key: UniqueKey(),
                     confirmDismiss: (DismissDirection direction) async {
                       return await showDialog(
                         context: context,
@@ -115,15 +114,8 @@ class FavouritesScreen extends StatelessWidget {
                               break;
                             }
                           }
-                          //  tracksScreenController.songs[
-                          //         tracksScreenController.currentIndex.value];
-                          Get.to(PlayerScreen());
-                          // Get.find<PlayerScreenController>().setSong(
-                          //     tracksScreenController.songs[
-                          //         tracksScreenController.currentIndex.value]);
-                          //         Get.to(PlayerScreen());
 
-                          //  Get.find<PlayerScreenController>().setSong(snapshot.data![index]);
+                          Get.to(PlayerScreen());
                         }),
                   );
                 },

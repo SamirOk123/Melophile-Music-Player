@@ -30,22 +30,6 @@ class DbController extends GetxController {
     return await db.addSongs(listOfSongs);
   }
 
-  // Future<void> deletePlaylist(int id) async {
-  //   await db.deletePlaylist(id);
-
-  //   update();
-  // }
-
-  // void createPlaylist(Playlist playlist) async {
-  //   await db.createPlaylist(playlist);
-  //   update();
-  // }
-
-  // void deletePlaylist(Playlist playlist) async {
-  //   await db.deletePlaylist(playlist);
-  //   update();
-  // }
-
   // FAVOURITES
   Future<int> addToFav(String title, int id, String location) async {
     final Song firstFavourite = Song(id: id, title: title, location: location);

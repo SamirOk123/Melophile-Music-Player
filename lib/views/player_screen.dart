@@ -13,19 +13,6 @@ import 'package:on_audio_query/on_audio_query.dart';
 import 'package:just_audio/just_audio.dart';
 
 class PlayerScreen extends StatelessWidget {
-  // //dropDownMenu method
-  // selectedItem(BuildContext context, Object? item) {
-  //   switch (item) {
-  //     case 0:
-  //       print('favourites clicked');
-  //       break;
-  //     case 1:
-  //       print('playlist clicked');
-  //   }
-  // }
-  // PlayerScreenController playerScreenController =
-  //     Get.put(PlayerScreenController());
-
   DbController dbController = Get.find();
   FavouriteController favouriteController = Get.put(FavouriteController());
   FunctionsController functionsController = Get.put(FunctionsController());
@@ -43,29 +30,6 @@ class PlayerScreen extends StatelessWidget {
           child: AppBar(
             backgroundColor: kBackgroundColour,
             elevation: 0,
-            // actions: [
-            // PopupMenuButton(
-            //   iconSize: 22,
-            //   itemBuilder: (context) => [
-            //     const PopupMenuItem<int>(
-            //       child: Text(
-            //         'Add to favourites',
-            //         style: TextStyle(color: Colors.white),
-            //       ),
-            //       value: 0,
-            //     ),
-            //     const PopupMenuItem<int>(
-            //       child: Text(
-            //         'Add to playlist',
-            //         style: TextStyle(color: Colors.white),
-            //       ),
-            //       value: 1,
-            //     ),
-            //   ],
-            //   onSelected: (item) => selectedItem(context, item),
-            //   color: kLightBlue,
-            // ),
-            // ],
             leading: IconButton(
               iconSize: 21,
               icon: const Icon(Icons.arrow_back_ios_new),
@@ -133,16 +97,6 @@ class PlayerScreen extends StatelessWidget {
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                       ),
-                      //  Marquee(
-                      //     blankSpace: 15,
-                      //     text: tracksScreenController
-                      //         .songs[tracksScreenController.currentIndex.value].title,
-                      //     style: const TextStyle(
-                      //       color: Colors.white,
-                      //       fontSize: 20,
-                      //       fontWeight: FontWeight.bold,
-
-                      // ),),
                     ),
                   ),
                 ),
@@ -355,7 +309,8 @@ class PlayerScreen extends StatelessWidget {
                                             hintStyle: TextStyle(
                                                 color: kBackgroundColour),
                                           ),
-                                          style: const TextStyle(color: Colors.white),
+                                          style: const TextStyle(
+                                              color: Colors.white),
                                         ),
                                       ),
                                     ],
@@ -639,48 +594,4 @@ class PlayerScreen extends StatelessWidget {
       ),
     );
   }
-
-  // Widget _shuffleButton(BuildContext context, bool isEnabled) {
-  //   return IconButton(
-  //     icon: isEnabled
-  //         ? const Icon(Icons.shuffle, color: Colors.lightBlue)
-  //         : const Icon(
-  //             Icons.shuffle,
-  //             color: Colors.white,
-  //           ),
-  //     onPressed: () async {
-  //       final enable = !isEnabled;
-  //       if (enable) {
-  //         await Get.find<PlayerScreenController>().player.shuffle();
-  //       }
-  //       await Get.find<PlayerScreenController>()
-  //           .player
-  //           .setShuffleModeEnabled(enable);
-  //     },
-  //   );
-  // }
-
-  // Widget _repeatButton(BuildContext context, LoopMode loopMode) {
-  //   final icons = [
-  //     const Icon(
-  //       Icons.repeat,
-  //       color: Colors.white,
-  //     ),
-  //     const Icon(Icons.repeat, color: Colors.lightBlue),
-  //     const Icon(Icons.repeat_one, color: Colors.lightBlue),
-  //   ];
-  //   const cycleModes = [
-  //     LoopMode.off,
-  //     LoopMode.all,
-  //     LoopMode.one,
-  //   ];
-  //   final index = cycleModes.indexOf(loopMode);
-  //   return IconButton(
-  //     icon: icons[index],
-  //     onPressed: () {
-  //       Get.find<PlayerScreenController>().player.setLoopMode(
-  //           cycleModes[(cycleModes.indexOf(loopMode) + 1) % cycleModes.length]);
-  //     },
-  //   );
-  // }
 }

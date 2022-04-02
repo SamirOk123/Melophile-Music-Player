@@ -154,13 +154,6 @@ class SearchScreen extends StatelessWidget {
                                   }
                                   Get.to(PlayerScreen());
                                 }
-
-                                // searchController.songsListOnSearch.isEmpty
-                                //     ? print('list is empty!')
-                                //     :  Get.find<PlayerScreenController>().setSong(
-                                //         searchController
-                                //             .songsListOnSearch[index]);
-                                // Get.to(PlayerScreen());
                               },
                             );
                           },
