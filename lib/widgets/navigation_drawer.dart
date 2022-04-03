@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:my_music_player/constants/constants.dart';
+import 'package:share_plus/share_plus.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class NavigationDrawer extends StatelessWidget {
   const NavigationDrawer({Key? key}) : super(key: key);
@@ -21,19 +23,22 @@ class NavigationDrawer extends StatelessWidget {
   Widget buildHeader(BuildContext context) => Container(
         color: kLightBlue,
         child: Column(
-          children: const [
-            Icon(
-              Icons.music_note_rounded,
-              size: 90,
-              color: kBackgroundColour,
+          children: [
+            const SizedBox(
+              height: 25,
             ),
-            SizedBox(
-              height: 10,
+            Image.asset(
+              'assets/images/music-notee.png',
+              width: 90,
+              height: 90,
             ),
-            Text(
+            const SizedBox(
+              height: 15,
+            ),
+            const Text(
               'Melophile',
               style: TextStyle(
-                fontSize: 20,
+                fontSize: 21,
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
               ),
@@ -50,12 +55,15 @@ class NavigationDrawer extends StatelessWidget {
         child: Wrap(
           runSpacing: 10,
           children: [
-            const ListTile(
-              leading: Icon(
+            ListTile(
+              onTap: () {
+                Share.share(kPrivacyPolicyUrl);
+              },
+              leading: const Icon(
                 Icons.share,
                 color: Colors.white,
               ),
-              title: Text(
+              title: const Text(
                 'Share this App',
                 style: TextStyle(color: Colors.white),
               ),
@@ -103,13 +111,18 @@ class NavigationDrawer extends StatelessWidget {
                 style: TextStyle(color: Colors.white),
               ),
             ),
-            const ListTile(
-              leading: Icon(
+            ListTile(
+              onTap: () async {
+                if (await canLaunch(kPrivacyPolicyUrl)) {
+                  await launch(kPrivacyPolicyUrl);
+                }
+              },
+              leading: const Icon(
                 Icons.lock,
                 color: Colors.white,
               ),
-              title: Text(
-                'Privacy and Security',
+              title: const Text(
+                'Privacy and Policy',
                 style: TextStyle(color: Colors.white),
               ),
             ),
@@ -119,13 +132,14 @@ class NavigationDrawer extends StatelessWidget {
                   context: context,
                   builder: (ctx) => AlertDialog(
                     title: Row(
-                      children: const [
-                        Icon(
-                          Icons.music_note_rounded,
-                          size: 55,
-                          color: kBackgroundColour,
+                      children: [
+                        Image.asset(
+                          'assets/images/music-notee.png',
+                          width: 50,
+                          height: 50,
                         ),
-                        Text(
+                        const SizedBox(width: 12),
+                        const Text(
                           'Melophile 1.0.0',
                           style: TextStyle(
                               color: kBackgroundColour,
@@ -135,7 +149,7 @@ class NavigationDrawer extends StatelessWidget {
                       ],
                     ),
                     content: const Padding(
-                      padding: EdgeInsets.only(left: 13.0),
+                      padding: EdgeInsets.only(left: 10.0),
                       child: Text(
                         "Offline music player",
                         style: TextStyle(color: kBackgroundColour),

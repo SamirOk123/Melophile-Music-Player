@@ -89,9 +89,6 @@ class PlaylistsScreen extends StatelessWidget {
 
                         Get.to(() => PlaylistView(),
                             arguments: snapshot.data![index].title!);
-                        //   PlaylistView(),
-                        //   arguments: snapshot.data![index].id!,
-                        // );
                       },
                       child: Dismissible(
                         key:
@@ -180,11 +177,6 @@ class PlaylistsScreen extends StatelessWidget {
                   },
                 ),
               );
-
-              // PlaylistCard(
-              //     name: snapshot.data![index].title,
-              //     id: snapshot.data![index].id);
-
             } else {
               return const Center(
                 child: CircularProgressIndicator(
@@ -197,61 +189,4 @@ class PlaylistsScreen extends StatelessWidget {
       }),
     );
   }
-
-//   Future<void> _displayTextInputDialog(BuildContext context) async {
-//     return showDialog(
-//         context: context,
-//         builder: (context) {
-//           return AlertDialog(
-//             backgroundColor: kLightBlue,
-//             title: const Text(
-//               'Create new playlist',
-//               style: TextStyle(color: Colors.white),
-//             ),
-//             content:  TextField(controller:
-//             dbController.titleController,
-//               style: const TextStyle(color: Colors.white),
-//               autofocus: true,
-//               decoration:const InputDecoration(
-//                 hintText: "Title",
-//                 hintStyle: TextStyle(color: Colors.grey),
-//                 enabledBorder: UnderlineInputBorder(
-//                   borderSide: BorderSide(color: Colors.white),
-//                 ),
-//                 focusedBorder: UnderlineInputBorder(
-//                   borderSide: BorderSide(color: Colors.white),
-//                 ),
-//               ),
-//             ),
-//             actions: <Widget>[
-//               TextButton(
-//                 child: const Text(
-//                   'CANCEL',
-//                   style: TextStyle(color: Colors.white),
-//                 ),
-//                 onPressed: () {
-//                   Get.back();
-//                 },
-//               ),
-//               TextButton(
-//                 child: const Text(
-//                   'OK',
-//                   style: TextStyle(color: Colors.white),
-//                 ),
-//                 onPressed: () {
-
-//  var newPlaylist = Playlist(
-//                   title: dbController.titleController.text,
-//                 );
-
-//                 dbController.createPlaylist(newPlaylist);
-//                 dbController.titleController.clear();
-//                 Get.back();
-
-//                 },
-//               ),
-//             ],
-//           );
-//         });
-//   }
 }

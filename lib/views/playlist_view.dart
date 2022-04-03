@@ -36,7 +36,7 @@ class PlaylistView extends StatelessWidget {
                               key: UniqueKey(),
                               onDismissed: (DismissDirection direction) {
                                 db.deleteSong(snapshot.data![index].id!);
-                                // snapshot.data!.remove(snapshot.data![index]);
+                               
                               },
                               direction: DismissDirection.endToStart,
                               background: Container(
